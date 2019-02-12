@@ -12,16 +12,16 @@ import (
 )
 
 var (
-	Network     = "bitsong-test-network-1"
-	genesisTime = time.Date(2019, 2, 4, 12, 0, 0, 0, time.UTC)
+	Network     = "bitsong-test-network-2"
+	genesisTime = time.Date(2019, 2, 12, 10, 0, 0, 0, time.UTC)
 )
 
 func GetTestnetGenesis() (*tmtypes.GenesisDoc, error) {
 	validatorsPubKeys := []string{
-		"SAI2eUjhwLzvmq7pgzdS6MgA2IpXNVdGuiXK+Vzt0gE=",
-		//"c42kG6ant9abcpSvoVi4nFobQQy/DCRDyFxf4krR3Rw=",
-		//"bxbB/yGm+5RqrtD0wfzKJyty/ZBJiPkdOIMoK4rjG6I=",
-		//"nhPy9UaN14KzFkRPvWZZXhPbp9e9Pvob7NULQgRfWMY=",
+		"Sp0p+r4oUW74aXwX1N/YMu6ZDxEy5b/dCAsu7rwih6w=",
+		"ReGPdo/CS/uhLRXiU5E6rtwUK8ttQLxhMEPEWUsaodw=",
+		"GR5IvNYZXppTsOnfG/oGOOzrBYmkgkzmd/u0Uw5BVig=",
+		"Yr7cZQzJC9dq2fJ5zRgUmtsUqmNxwVFcOpSZ9o3qF+g=",
 	}
 	validators := make([]tmtypes.GenesisValidator, len(validatorsPubKeys))
 
@@ -39,8 +39,32 @@ func GetTestnetGenesis() (*tmtypes.GenesisDoc, error) {
 	appHash := [32]byte{}
 
 	appState := AppState{
-		FirstValidatorAddress: types.HexToAddress("Mx448fb95a04a20496c1658c159aa3d25344809627"),
+		FirstValidatorAddress: types.HexToAddress("Mx0fc2abbbac27d85d59f57b4ca9b1f001bdedb1a9"),
 		InitialBalances: []Account{
+			{
+				Address: types.HexToAddress("Mx0fc2abbbac27d85d59f57b4ca9b1f001bdedb1a9"),
+				Balance: map[string]string{
+					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
+				},
+			},
+			{
+				Address: types.HexToAddress("Mx8ec0c88d843318686bcaa1a7f98e0a5f5339dee0"),
+				Balance: map[string]string{
+					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
+				},
+			},
+			{
+				Address: types.HexToAddress("Mx39ad3ab9c9cc23b5d3bb850cbcb5f0b03ffea2bf"),
+				Balance: map[string]string{
+					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
+				},
+			},
+			{
+				Address: types.HexToAddress("Mx9305fb4644220e515528ce62c9bcf55d0b5c8b4c"),
+				Balance: map[string]string{
+					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
+				},
+			},
 			{
 				Address: types.HexToAddress("Mx448fb95a04a20496c1658c159aa3d25344809627"),
 				Balance: map[string]string{
@@ -80,10 +104,10 @@ func GetTestnetGenesis() (*tmtypes.GenesisDoc, error) {
 
 func GetPreTestnetGenesis() (*tmtypes.GenesisDoc, error) {
 	validatorsPubKeys := []string{
-		"tSlRQl0lF1BPdnIVynepvj4M14j9ckQ9qbF0/GhqN/A=",
-		//"c42kG6ant9abcpSvoVi4nFobQQy/DCRDyFxf4krR3Rw=",
-		//"bxbB/yGm+5RqrtD0wfzKJyty/ZBJiPkdOIMoK4rjG6I=",
-		//"nhPy9UaN14KzFkRPvWZZXhPbp9e9Pvob7NULQgRfWMY=",
+		"Sp0p+r4oUW74aXwX1N/YMu6ZDxEy5b/dCAsu7rwih6w=",
+		"ReGPdo/CS/uhLRXiU5E6rtwUK8ttQLxhMEPEWUsaodw=",
+		"GR5IvNYZXppTsOnfG/oGOOzrBYmkgkzmd/u0Uw5BVig=",
+		"Yr7cZQzJC9dq2fJ5zRgUmtsUqmNxwVFcOpSZ9o3qF+g=",
 	}
 	validators := make([]tmtypes.GenesisValidator, len(validatorsPubKeys))
 
@@ -101,22 +125,40 @@ func GetPreTestnetGenesis() (*tmtypes.GenesisDoc, error) {
 	appHash := [32]byte{}
 
 	appState := AppState{
-		FirstValidatorAddress: types.HexToAddress("Mxee81347211c72524338f9680072af90744333146"),
+		FirstValidatorAddress: types.HexToAddress("Mx0fc2abbbac27d85d59f57b4ca9b1f001bdedb1a9"),
 		InitialBalances: []Account{
 			{
-				Address: types.HexToAddress("Mxee81347211c72524338f9680072af90744333146"),
+				Address: types.HexToAddress("Mx0fc2abbbac27d85d59f57b4ca9b1f001bdedb1a9"),
 				Balance: map[string]string{
 					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
 				},
 			},
 			{
-				Address: types.HexToAddress("Mx184ac726059e43643e67290666f7b3195093f870"),
+				Address: types.HexToAddress("Mx8ec0c88d843318686bcaa1a7f98e0a5f5339dee0"),
 				Balance: map[string]string{
 					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
 				},
 			},
 			{
-				Address: types.HexToAddress("Mx4e828501f3a5325d8f7fad4c5bc9db8da1938afe"),
+				Address: types.HexToAddress("Mx39ad3ab9c9cc23b5d3bb850cbcb5f0b03ffea2bf"),
+				Balance: map[string]string{
+					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
+				},
+			},
+			{
+				Address: types.HexToAddress("Mx9305fb4644220e515528ce62c9bcf55d0b5c8b4c"),
+				Balance: map[string]string{
+					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
+				},
+			},
+			{
+				Address: types.HexToAddress("Mx448fb95a04a20496c1658c159aa3d25344809627"),
+				Balance: map[string]string{
+					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
+				},
+			},
+			{
+				Address: types.HexToAddress("Mx6afaad5211a4ccfc06d6e33f9da43b6f5149fa53"),
 				Balance: map[string]string{
 					"BTST": helpers.BipToPip(big.NewInt(100000000)).String(),
 				},

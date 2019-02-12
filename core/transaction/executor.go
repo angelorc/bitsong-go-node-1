@@ -15,7 +15,7 @@ var (
 )
 
 const (
-	maxTxLength          = maxPayloadLength + maxServiceDataLength + (1024 * 3) // TODO: make some estimations
+	maxTxLength          = maxPayloadLength + maxServiceDataLength + (1024 * 4) // TODO: make some estimations
 	maxPayloadLength     = 1024
 	maxServiceDataLength = 128
 )
@@ -35,7 +35,7 @@ func RunTx(context *state.StateDB, isCheck bool, rawTx []byte, rewardPool *big.I
 	if len(rawTx) > maxTxLength {
 		return Response{
 			Code: code.TxTooLarge,
-			Log:  "TX length is over 1024 bytes"}
+			Log:  fmt.Sprintf("TX length is over %d bytes", maxTxLength)}
 	}
 
 	tx, err := TxDecoder.DecodeFromBytes(rawTx)
